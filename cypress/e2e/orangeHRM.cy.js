@@ -55,7 +55,7 @@ describe('template suite', () => {
       console.log("End of the IT blockSSSTT")
     })    // END: it('Verify 7 Tiles and dislay the names:'
 
-  it.only("Verify Left panel items 12 clicked after enter search box and verify title:", () => {
+  it("Verify Left panel items 12 clicked after enter search box and verify title:", () => {
       cy.get('.oxd-sidepanel-body')
       cy.get('.oxd-main-menu-item-wrapper .oxd-text.oxd-text--span.oxd-main-menu-item--name').each((el1, index) => {
         const lPanelItems = el1.text()
@@ -74,9 +74,9 @@ describe('template suite', () => {
           
           cy.get(".oxd-topbar-header-title").find(".oxd-topbar-header-breadcrumb").then(($p) => {
             const titleText = $p.text()
-            //cy.log(titleText)
-            //cy.log("==========")
-            //cy.log(lPanelItems)
+            cy.log(titleText)
+            cy.log("==========")
+            cy.log(lPanelItems)
             if(lPanelItems == "My Info"){
                 expect(titleText)
                 .include("PIM")
@@ -92,16 +92,13 @@ describe('template suite', () => {
       })
   })
 
-  it('DEBUG <it> block:', () => {
-
-
+  it.only('DEBUG <it> block:', () => {
     cy.visit("https://opensource-demo.orangehrmlive.com/web/index.php/admin/viewSystemUsers")
-    cy.get('.oxd-topbar-header-title')
-    cy.get(".oxd-topbar-header-title").find(".oxd-topbar-header-breadcrumb").contains("Admin")
-    cy.get(".oxd-topbar-header-title").find(".oxd-topbar-header-breadcrumb").then(($p) => {
-      expect($p.text())
-     .includes("Admin")
-
+      cy.get('.oxd-topbar-header-title')
+      cy.get(".oxd-topbar-header-title").find(".oxd-topbar-header-breadcrumb").contains("Admin")
+      cy.get(".oxd-topbar-header-title").find(".oxd-topbar-header-breadcrumb").then(($p) => {
+        expect($p.text())
+      .includes("Admin")
       cy.log($p.text())
       console.log($p.text())
     })
